@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CardioGuard Pro | Advanced Heart Disease Prediction</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <span class="logo-icon">❤️</span>
+                <span class="logo-text">CardioGuard<span class="accent">Pro</span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#predictor">Predictor</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="fade-in">Predict Your Heart Health with <span class="gradient-text">Precision AI</span></h1>
+                    <p class="fade-in delay-1">Leveraging advanced machine learning to provide accurate heart disease risk assessments. Developed by Saifuddin Hanif.</p>
+                    <a href="#predictor" class="btn btn-primary fade-in delay-2">Get Started</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="predictor" class="predictor-section">
+            <div class="container">
+                <div class="glass-card main-card fade-in delay-3">
+                    <div class="card-header">
+                        <h2>Health Assessment Form</h2>
+                        <p>Please enter your clinical parameters accurately for the best prediction.</p>
+                    </div>
+
+                    <form id="prediction-form" class="prediction-form">
+                        <div class="form-grid">
+                            <!-- Basic Info -->
+                            <div class="form-group">
+                                <label for="Age">Age (Min: 1, Max: 120)</label>
+                                <input type="number" id="Age" name="Age" min="1" max="120" value="35" required>
+                                <div class="input-info">Years</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Sex">Biological Sex</label>
+                                <select id="Sex" name="Sex" required>
+                                    <option value="M">Male</option>
+                                    <option value="F">Female</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="ChestPainType">Chest Pain Type</label>
+                                <select id="ChestPainType" name="ChestPainType" required>
+                                    <option value="ATA">Atypical Angina</option>
+                                    <option value="NAP">Non-Anginal Pain</option>
+                                    <option value="TA">Typical Angina</option>
+                                    <option value="ASY" selected>Asymptomatic</option>
+                                </select>
+                            </div>
+
+                            <!-- Vitals -->
+                            <div class="form-group">
+                                <label for="RestingBP">Resting Blood Pressure</label>
+                                <input type="range" id="RestingBP" name="RestingBP" min="80" max="200" value="120">
+                                <div class="range-value"><span id="restingbp-val">120</span> <small>mmHg</small></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Cholesterol">Serum Cholesterol</label>
+                                <input type="range" id="Cholesterol" name="Cholesterol" min="100" max="600" value="200">
+                                <div class="range-value"><span id="cholesterol-val">200</span> <small>mg/dl</small></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="MaxHR">Max Heart Rate</label>
+                                <input type="range" id="MaxHR" name="MaxHR" min="60" max="220" value="150">
+                                <div class="range-value"><span id="maxhr-val">150</span> <small>bpm</small></div>
+                            </div>
+
+                            <!-- Clinical -->
+                            <div class="form-group">
+                                <label for="FastingBS">Fasting Blood Sugar > 120mg/dl</label>
+                                <div class="toggle-group">
+                                    <label class="toggle">
+                                        <input type="checkbox" id="FastingBS" name="FastingBS">
+                                        <span class="slider"></span>
+                                    </label>
+                                    <span class="toggle-label" id="fastingbs-label">No</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="RestingECG">Resting ECG Results</label>
+                                <select id="RestingECG" name="RestingECG" required>
+                                    <option value="Normal">Normal</option>
+                                    <option value="ST">ST Wave Abnormality</option>
+                                    <option value="LVH">Left Ventricular Hypertrophy</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="ExerciseAngina">Exercise Induced Angina</label>
+                                <div class="toggle-group">
+                                    <label class="toggle">
+                                        <input type="checkbox" id="ExerciseAngina" name="ExerciseAngina">
+                                        <span class="slider"></span>
+                                    </label>
+                                    <span class="toggle-label" id="exerciseangina-label">No</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Oldpeak">Oldpeak (ST Depression)</label>
+                                <input type="number" id="Oldpeak" name="Oldpeak" step="0.1" min="0" max="6" value="1.0" required>
+                                <div class="input-info">ST Units</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="ST_Slope">ST Slope Type</label>
+                                <select id="ST_Slope" name="ST_Slope" required>
+                                    <option value="Up">Upsloping</option>
+                                    <option value="Flat" selected>Flat</option>
+                                    <option value="Down">Downsloping</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-footer">
+                            <button type="submit" class="btn btn-submit" id="submit-btn">
+                                <span class="btn-text">Analyze Vital Data</span>
+                                <div class="loader-dots" style="display: none;">
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </button>
+                        </div>
+                    </form>
+
+                    <div id="result-container" class="result-container" style="display: none;">
+                        <div class="result-content">
+                            <div id="result-icon" class="result-icon"></div>
+                            <h3 id="result-title">Analysis Complete</h3>
+                            <p id="result-message"></p>
+                            <div class="probability-bar-container">
+                                <div class="probability-label">Confidence Score: <span id="probability-val">0</span>%</div>
+                                <div class="probability-bar">
+                                    <div id="probability-fill" class="probability-fill"></div>
+                                </div>
+                            </div>
+                            <button class="btn btn-outline" onclick="resetForm()">New Assessment</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 CardioGuard Pro. Built with ❤️ for Health Tech.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
