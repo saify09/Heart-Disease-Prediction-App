@@ -13,8 +13,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Expose port 7860 for Hugging Face
 EXPOSE 7860
 
-# Define environment variable
-ENV FLASK_APP=app.py
-
-# Run app.py when the container launches
-CMD ["python", "app.py"]
+# Run the application using gunicorn
+CMD ["gunicorn", "-b", "0.0.0.0:7860", "app:app"]
